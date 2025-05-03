@@ -1,0 +1,11 @@
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+}
+
+.field{
+    height: 20px;
+    border: none;
+    border-radius: 5px;
+}
