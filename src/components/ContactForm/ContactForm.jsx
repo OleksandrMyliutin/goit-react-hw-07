@@ -1,9 +1,9 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
-import { addContact } from '../../redux/contactsSlice';
 import { nanoid } from 'nanoid';
 import css from './ContactForm.module.css'; // Імпорт стилів
+import { addContactThunk } from '../../redux/operations';
 
 
 const ContactSchema = Yup.object().shape({
@@ -29,7 +29,7 @@ export default function ContactForm() {
   
     console.log('Submitting new contact:', newContact);
   
-    dispatch(addContact(newContact));
+    dispatch(addContactThunk(newContact));
     resetForm();
   };
 

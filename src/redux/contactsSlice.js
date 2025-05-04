@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { deleteContactThunk, fetchDataThunk } from './operations';
+import { addContactThunk, deleteContactThunk, fetchDataThunk } from './operations';
 // https://6817394426a599ae7c39ae51.mockapi.io/contacts
 const initialState = {
     items: [],
@@ -35,6 +35,9 @@ const contactsSlice = createSlice({
         })
         .addCase(deleteContactThunk.fulfilled, (state, action) => {
             state.items = state.items.filter(contact => contact.id !== action.payload.data.id);
+        })
+        .addCase(addContactThunk.fulfilled, (state, action) => {
+            state.items.push(action.payload);
         })
         .addCase(fetchDataThunk.rejected, (state, action) => {
             state.error = action.payload;
