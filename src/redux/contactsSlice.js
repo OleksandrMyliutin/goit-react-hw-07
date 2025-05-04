@@ -1,5 +1,5 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-import { addContactThunk, deleteContactThunk, fetchDataThunk } from './operations';
+import { addContactThunk, deleteContactThunk, fetchDataThunk } from './contactsOps.js';
 // https://6817394426a599ae7c39ae51.mockapi.io/contacts
 const initialState = {
     items: [],

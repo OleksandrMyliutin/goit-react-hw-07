@@ -4,7 +4,7 @@ import ContactForm from './ContactForm/ContactForm'
 import ContactList from './ContactList/ContactList'
 import SearchBox from './SearchBox/SearchBox'
 import { useEffect } from 'react';
-import { fetchDataThunk } from '../redux/operations';
+import { fetchDataThunk } from '../redux/contactsOps.js';
 
 
 

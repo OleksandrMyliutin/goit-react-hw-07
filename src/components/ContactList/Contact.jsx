@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 import css from './Contact.module.css';
 import { IoPerson } from "react-icons/io5";
 import { FaPhoneAlt } from "react-icons/fa";
-import { deleteContactThunk } from '../../redux/operations';
+import { deleteContactThunk } from '../../redux/contactsOps.js';
 import { selectFilteredContacts } from '../../redux/selectors';
 
 export default function Contact({id, name, number}) {
