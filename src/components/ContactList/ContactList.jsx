@@ -6,7 +6,7 @@ export default function ContactList() {
     const contacts = useSelector(state => state.contacts.items);
     const filter = useSelector(state => state.filters.name);
 
-  // Фільтрація контактів по імені
+
 const filteredContacts = contacts.filter(contact =>
     contact.name.toLowerCase().includes(filter.toLowerCase())
 );

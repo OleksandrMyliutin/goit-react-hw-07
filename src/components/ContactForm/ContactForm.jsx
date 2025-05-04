@@ -27,7 +27,7 @@ export default function ContactForm() {
       number: values.number,
     };
   
-    console.log('Submitting new contact:', newContact); // 👉 Додаємо лог
+    console.log('Submitting new contact:', newContact);
   
     dispatch(addContact(newContact));
     resetForm();
