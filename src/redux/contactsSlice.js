@@ -10,24 +10,6 @@ const initialState = {
 const contactsSlice = createSlice({
     name: 'contacts',
     initialState,
-    reducers: {
-    addContact:(state, action) =>{
-        state.items.push(action.payload);
-        },
-    deleteContact:(state, action) =>{
-        state.items = state.items.filter(contact => contact.id !== action.payload);
-        },
-    
-    dataFulFilledOperation:(state, action) => {
-        state.items = action.payload;
-        },
-    setLoading:(state, action) =>{
-        state.isLoading = action.payload;
-        },
-    setError:(state, action) =>{
-        state.error = action.payload;
-        },
-    },
     extraReducers: builder => {
         builder
         .addCase(fetchDataThunk.fulfilled, (state, action) => {

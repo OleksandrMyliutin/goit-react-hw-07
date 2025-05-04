@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 import { fetchDataThunk } from '../redux/operations';
 
 
+
 function App() {
   const dispatch =  useDispatch();
   useEffect(() => {

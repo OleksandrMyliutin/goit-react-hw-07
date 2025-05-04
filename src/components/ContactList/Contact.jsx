@@ -3,14 +3,15 @@ import css from './Contact.module.css';
 import { IoPerson } from "react-icons/io5";
 import { FaPhoneAlt } from "react-icons/fa";
 import { deleteContactThunk } from '../../redux/operations';
+import { selectFilteredContacts } from '../../redux/selectors';
 
 export default function Contact({id, name, number}) {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch(selectFilteredContacts);
 
   const handleDelete = () => {
     dispatch(deleteContactThunk(id));
   };
-
+  
   return (
     <div className={css.wrapperBox}>
       <div className={css.contacts}>
