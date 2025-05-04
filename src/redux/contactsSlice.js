@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import { addContactThunk, deleteContactThunk, fetchDataThunk } from './operations';
 // https://6817394426a599ae7c39ae51.mockapi.io/contacts
 const initialState = {
@@ -34,13 +34,21 @@ const contactsSlice = createSlice({
             state.items = action.payload;
         })
         .addCase(deleteContactThunk.fulfilled, (state, action) => {
-            state.items = state.items.filter(contact => contact.id !== action.payload.data.id);
+            state.items = state.items.filter(contact => contact.id !== action.payload);
         })
         .addCase(addContactThunk.fulfilled, (state, action) => {
             state.items.push(action.payload);
         })
-        .addCase(fetchDataThunk.rejected, (state, action) => {
+        .addMatcher(isAnyOf(fetchDataThunk.rejected, deleteContactThunk.rejected, addContactThunk.rejected), (state, action) => {
+            state.isLoading = false;
             state.error = action.payload;
+        })
+        .addMatcher(isAnyOf(fetchDataThunk.pending, deleteContactThunk.pending, addContactThunk.pending), (state) => {
+            state.isLoading = true;
+            state.error = null;
+        })
+        .addMatcher(isAnyOf(fetchDataThunk.fulfilled, deleteContactThunk.fulfilled, addContactThunk.fulfilled), (state) => {
+            state.isLoading = false;
         });
     },
 });
