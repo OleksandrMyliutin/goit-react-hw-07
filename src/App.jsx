@@ -1,4 +1,4 @@
-// import './App.css'
+import './App.css'
 
 import { useEffect, useState } from 'react';
 import ContactForm from './components/ContactForm/ContactForm'

@@ -1,10 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
+const initialState = {
+    name: '',
+};
 
 const filtersSlice = createSlice({
-  name: 'filters',        // Назва цього шматочка Store
-    initialState: {
-    name: '',             // Початкове значення фільтра: порожній рядок
-    },
+  name: 'filters',
+    initialState,
     reducers: {
     changeFilter(state, action) {
         state.name = action.payload;
@@ -12,8 +13,6 @@ const filtersSlice = createSlice({
     },
 });
 
-// Експортуємо екшен
-export const { changeFilter } = filtersSlice.actions;
 
-// Експортуємо редюсер
+export const { changeFilter } = filtersSlice.actions;
 export const filtersReducer = filtersSlice.reducer;

@@ -6,6 +6,7 @@
 }
 .input{
     display: flex;
+    align-items: start;
     flex-direction: column;
     padding-left: 5px;
     padding-right: 5px;
@@ -20,6 +21,7 @@
 
 .field{
     height: 20px;
+    width: 100%;
     border: none;
     border-radius: 5px;
 }

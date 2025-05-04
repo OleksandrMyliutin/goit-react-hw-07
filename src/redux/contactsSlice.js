@@ -1,10 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
+const initialState = {
+    items: [],
+};
 
 const contactsSlice = createSlice({
-    name: 'contacts',   // Назва частини store
-    initialState: {
-    items: [],        // Початковий список контактів
-    },
+    name: 'contacts',
+    initialState,
     reducers: {
     addContact(state, action) {
         state.items.push(action.payload);
@@ -17,8 +18,6 @@ const contactsSlice = createSlice({
     },
 });
 
-// Експортуємо екшени (щоб можна було викликати їх у компонентах)
-export const { addContact, deleteContact } = contactsSlice.actions;
 
-// Експортуємо редюсер
+export const { addContact, deleteContact } = contactsSlice.actions;
 export const contactsReducer = contactsSlice.reducer;
