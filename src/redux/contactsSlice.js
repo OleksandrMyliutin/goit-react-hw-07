@@ -1,6 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
+// https://6817394426a599ae7c39ae51.mockapi.io/contacts
 const initialState = {
     items: [],
+    isLoading: false,
+    error: null,
 };
 
 const contactsSlice = createSlice({
